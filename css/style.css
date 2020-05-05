@@ -45,6 +45,14 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+@media (max-width: 240px) {
+  .page {
+    padding-left: 8px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+}
 
 .nav_desktop {
   position: sticky;
@@ -452,16 +460,16 @@ table {
 .table_header_ap .list .ml_line_p {
   width: 100%;
   height: auto;
-  min-height: 40px;
+  min-height: 48px;
   padding: 12px 16px;
   background-color: #90CAF9;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-@media (max-width: 321px) {
+@media (max-width: 320px) {
   .table_header_ap .list .ml_line_p {
-    padding-bottom: 40px;
+    padding-bottom: 60px;
   }
 }
 .table_header_ap .list .ml_line_p:hover {
@@ -476,7 +484,7 @@ table {
 }
 .table_header_ap .list .ml_line_p .ml_line_p__container .ml_line_p_content {
   float: left;
-  width: calc(100% - 140px);
+  width: calc(100% - 190px);
   height: auto;
   text-align: left;
   box-sizing: border-box;
@@ -513,8 +521,8 @@ table {
 }
 .table_header_ap .list .ml_line_p .ml_line_p__container .ml_item_due_date {
   float: left;
-  width: 140;
-  font-size: 0.8em;
+  width: 190;
+  font-size: 0.7em;
   text-align: right;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -522,6 +530,7 @@ table {
 }
 .table_header_ap .list .ml_line_p .ml_line_p__container .ml_item_due_date .ml_item_due_date1 {
   float: left;
+  width: auto;
   font-weight: 400;
   cursor: pointer;
   padding-right: 8px;
@@ -531,7 +540,10 @@ table {
 }
 .table_header_ap .list .ml_line_p .ml_line_p__container .ml_item_due_date .ml_item_due_date2 {
   float: left;
+  width: auto;
+  font-weight: 400;
   cursor: pointer;
+  padding-right: 8px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -545,11 +557,6 @@ table {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-}
-@media (max-width: 321px) {
-  .table_header_ap .list .ml_line_s {
-    padding-bottom: 40px;
-  }
 }
 .table_header_ap .list .ml_line_s .ml_line_s__container {
   width: 100%;
@@ -585,26 +592,6 @@ table {
   color: #424242;
   font-size: 0.9em;
   font-weight: 400;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-.table_header_ap .list .ml_line_s .ml_line_s__container .ml_item_due_date {
-  float: left;
-  width: 100;
-  font-size: 0.8em;
-  text-align: right;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-@media (max-width: 320px) {
-  .table_header_ap .list .ml_line_s .ml_line_s__container .ml_item_due_date {
-    width: 100%;
-  }
-}
-.table_header_ap .list .ml_line_s .ml_line_s__container .ml_item_due_date .ml_item_due_c_date {
-  float: left;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

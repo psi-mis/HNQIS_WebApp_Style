@@ -54,6 +54,11 @@ body {
     margin: 0 auto;
     @include box-sizing(border-box);
 
+    @include rwd-max(240) {
+        padding-left: 8px;
+        @include box-sizing(border-box);
+    }
+
 }
 
 .nav_desktop {

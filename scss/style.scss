@@ -447,13 +447,13 @@ table {
         .ml_line_p {
             width: 100%;
             height: auto;
-            min-height: 40px;
+            min-height: 48px;
             padding: 12px 16px;
             background-color: #90CAF9;
             @include box-sizing(border-box);
 
-            @include rwd-max(321) {
-                padding-bottom: 40px;
+            @include rwd-max(320) {
+                padding-bottom: 60px;
             }
 
             &:hover {
@@ -467,7 +467,7 @@ table {
 
                 .ml_line_p_content {
                     float: left;
-                    width: calc(100% - 140px);
+                    width: calc(100% - 190px);
                     height: auto;
                     text-align: left;
                     @include box-sizing(border-box);
@@ -499,13 +499,14 @@ table {
 
                 .ml_item_due_date {
                     float: left;
-                    width: 140;
-                    font-size: 0.8em;
+                    width: 190;
+                    font-size: 0.7em;
                     text-align: right;
                     @include box-sizing(border-box);
 
                     .ml_item_due_date1 {
                         float: left;
+                        width: auto;
                         font-weight: 400;
                         cursor: pointer;
                         padding-right: 8px;
@@ -514,9 +515,13 @@ table {
 
                     .ml_item_due_date2 {
                         float: left;
+                        width: auto;
+                        font-weight: 400;
                         cursor: pointer;
+                        padding-right: 8px;
                         @include box-sizing(border-box);
                     }
+
                 }
             }
         }
@@ -529,9 +534,7 @@ table {
             background-color: #BBDEFB;
             @include box-sizing(border-box);
 
-            @include rwd-max(321) {
-                padding-bottom: 40px;
-            }
+
 
             .ml_line_s__container {
                 width: 100%;
@@ -562,23 +565,6 @@ table {
                         color: #424242;
                         font-size: 0.9em;
                         font-weight: 400;
-                        @include box-sizing(border-box);
-                    }
-                }
-
-                .ml_item_due_date {
-                    float: left;
-                    width: 100;
-                    font-size: 0.8em;
-                    text-align: right;
-                    @include box-sizing(border-box);
-
-                    @include rwd-max(320) {
-                        width: 100%;
-                    }
-
-                    .ml_item_due_c_date {
-                        float: left;
                         @include box-sizing(border-box);
                     }
                 }

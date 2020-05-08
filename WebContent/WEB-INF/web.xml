@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <display-name>lesotho Application</display-name>
+  <description>
+        This is a simple web application with a source code organization
+        based on the recommendations of the Application Developer's Guide.
+    </description>
+    
+  
+  <servlet>
+    <servlet-name>EventController</servlet-name>
+    <servlet-class>psi.hnqis.imci.service.EventController</servlet-class>
+  </servlet>
+  
+  
+  <servlet>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>psi.hnqis.imci.service.FeedbackServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+    <servlet-name>EventController</servlet-name>
+    <url-pattern>/event/*</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/feedback/*</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

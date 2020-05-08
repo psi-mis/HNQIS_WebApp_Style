@@ -169,6 +169,7 @@ body {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  cursor:pointer;
 }
 .nav_desktop .nav__content .nav__cta .nav__cta_ofq {
   float: left;

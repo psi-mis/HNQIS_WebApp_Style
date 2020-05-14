@@ -53,7 +53,8 @@ function EventDetails()
 
 	me.errorMsgTbTag = $("#errorMsgTb");
 	me.errorMsgTag = $("#errorMsg");
-	
+
+	me.nextAssessmentTag = $("#nextAssessment");
 	me.eventDataDivTag = $("#eventDataDiv");
 	me.ouNameTag = $("#ouName");
 	me.eventNameTag = $("#eventName");
@@ -467,13 +468,19 @@ function EventDetails()
 		
 		// STEP 2. Populate data value
 		var dataValues = eventData.dataValues;
+		var nextAssessmentVal = "None";
 		
 		for( var i in dataValues )
 		{
 			var dataValue = dataValues[i];
+			if( dataValue.dataElement == me.DE_ID_AssessmentScheduled  )
+			{
+				nextAssessmentVal = Util.formatDate( dataValue.value );
+			}
 			
 			var valueTag = me.eventDataDivTag.find("[deId='" + dataValue.dataElement + "']").find(".value");
-			if( valueTag.length > 0 )
+			
+			if ( valueTag.length > 0 )
 			{
 				var value = dataValue.value;
 				
@@ -497,8 +504,7 @@ function EventDetails()
 					statusTag.append( statusValueTag );
 					statusTag.closest("tr").attr("isPass", ( dataValue.value == "1" ) );
 				}
-				else if( dataValue.dataElement == me.DE_ID_AssessmentScheduled 
-						|| dataValue.dataElement == me.DE_ID_ActionDueDate_1 
+				else if( dataValue.dataElement == me.DE_ID_ActionDueDate_1 
 						|| dataValue.dataElement == me.DE_ID_ActionCompletionDate_1 
 						|| dataValue.dataElement == me.DE_ID_ActionDueDate_2 
 						|| dataValue.dataElement == me.DE_ID_ActionCompletionDate_2 
@@ -524,6 +530,8 @@ function EventDetails()
 					me.setScoreValueAndColor( valueTag, value );
 				}
 			}
+		
+			me.nextAssessmentTag.text( nextAssessmentVal );
 			
 		}
 		

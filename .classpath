@@ -18,5 +18,15 @@
 	<classpathentry kind="lib" path="libs/httpclient-4.1.1.jar"/>
 	<classpathentry kind="lib" path="libs/json-20140107.jar"/>
 	<classpathentry kind="lib" path="libs/tomcat-util-8.0.0-rc1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cthut/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar" sourcepath="C:/Users/cthut/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+			<attribute name="maven.groupId" value="javax.servlet"/>
+			<attribute name="maven.artifactId" value="javax.servlet-api"/>
+			<attribute name="maven.version" value="4.0.1"/>
+			<attribute name="maven.scope" value="provided"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

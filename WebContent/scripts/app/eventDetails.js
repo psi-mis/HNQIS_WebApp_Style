@@ -16,10 +16,6 @@ function EventDetails()
 	me._query_EventDetails = "event?eventId=" + me.PARAM_EVENTID + "&server=" + me.PARAM_SERVER;
 	me._query_EventUserDetails = "users/" + me.PARAM_USERNAME + ".json";
 	
-//	me.HEADER_COLOR_RANGE = ["#c2c2c2", "#d2d2d2", "#e6e6e6"];
-//	me.COLOR_WHITE = "#f5f5f5";
-//	me.BIG_FONT_SIZE = 18;
-	
 	me.DE_ID_AssessmentScheduled = "M93RYt47CMK";
 	me.DE_ID_Competency = "KesgQ5NHkQW";
 	me.DE_ID_Gap = "lI09tJv3h4z";
@@ -216,6 +212,10 @@ function EventDetails()
 				
 				// STEP 3. Populate event data
 				me.populateEventData( json.event, me.optionSet );
+
+				// STEP 4. Hide empty sections
+				me.hideEmptySections();
+
 				me.eventDataDivTag.show();
 				me.errorMsgTbTag.hide();
 				
@@ -245,6 +245,72 @@ function EventDetails()
 				MsgManager.appUnblock();
 			}); 
 	};
+
+	me.hideEmptySections = function()
+	{
+		// Show/Hide "GAP" section
+		var gapsTag = me.eventDataDivTag.find(".gaps-section");
+		if( gapsTag.find(".value").html() == "" )
+		{
+			me.eventDataDivTag.find(".gaps-section").hide();
+		}
+		else
+		{
+			me.eventDataDivTag.find(".gaps-section").show();
+		}
+		
+		// Show/ Hide "Action" sections
+		
+		var actionTag = me.eventDataDivTag.find( "[deId='" + me.DE_ID_ActionPlan + "']" );
+		var actionVal = actionTag.find("value").html();
+		if( actionVal == "" )
+		{
+			actionTag.hide();
+		}
+		else
+		{
+			actionTag.show();
+		}
+
+
+		var action1Showed = me.hideActionSection("action1");
+		var action2Showed = me.hideActionSection("action2");
+		var action3Showed = me.hideActionSection("action3");
+
+		if( action1Showed && action2Showed && action3Showed && actionVal == "" )
+		{
+			me.eventDataDivTag.find( ".action" ).hide();
+		}
+		else
+		{
+			me.eventDataDivTag.find( ".action" ).show();
+		}
+	}
+
+	me.hideActionSection = function( actionClazzName )
+	{
+		var showed = false;
+		var actionTags = me.eventDataDivTag.find( "." + actionClazzName );
+		actionTags.each( function(){
+			$(this).find("[data]").each(function(){
+				if( $(this).attr("data") != undefined && $(this).attr("data") != "" )
+				{
+					showed = true;
+				}
+			})
+		});
+
+		if( showed )
+		{
+			actionTags.show();
+		}
+		else
+		{
+			actionTags.hide();
+		}
+
+		return !showed;
+	}
 	
 	me.buildEventDataTable = function( json_DataElements )
 	{
@@ -483,6 +549,7 @@ function EventDetails()
 			if ( valueTag.length > 0 )
 			{
 				var value = dataValue.value;
+				valueTag.attr( "data", value );
 				
 				var optionList = optionSet[dataValue.dataElement];
 				if( optionList != undefined )
@@ -496,7 +563,7 @@ function EventDetails()
 			
 				if( valueTag.hasClass("realValue" ) )
 				{
-					value = ( value == 1 ) ? "Yes" : "No";
+					// value = ( value == 1 ) ? "Yes" : "No";
 					valueTag.html( value );
 					
 					var statusValueTag = ( dataValue.value == "1" ) ? "<span class='status_pass f_right'>PASS</span>" : "<span class='status_fail f_right'>FAIL</span>";
